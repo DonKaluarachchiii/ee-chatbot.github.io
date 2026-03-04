@@ -156,16 +156,15 @@
             const data = await response.json();
             addMessage(data.reply || "No response.", "bot");
         } catch (err) {
-            addMessage("Error");
+            addMessage("Error: " + err.message, "bot");
         }
     }
 
     button.addEventListener("click", sendMessage);
     input.addEventListener("keypress", e => { if (e.key === "Enter") sendMessage(); });
 
-    // 💬 Welcome message from the bot
     window.onload = () => {
-        const welcomeText = "Hello! I'm VentureMate. I'm here to help you with Entrepreneurship Education. Ask me anything about creativity, opportunity recognition, problem-solving, or ethical decision-making!";
+        const welcomeText = "Hello! I'm VentureMate. I'm here to help you with Entrepreneurship Education. Ask me anything!";
         addMessage(welcomeText, "bot");
     };
 </script>
